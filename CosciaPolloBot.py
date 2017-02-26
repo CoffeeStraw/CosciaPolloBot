@@ -41,14 +41,11 @@ def handle(msg):
   chat_id = msg['chat']['id']
   command_input = msg['text']
 
-  #print(chat_id, content_type, chat_type)
+  pattern = 'pollo|polli|pollastrello|pollastrella'
 
-  #response = bot.getUpdates()
-
-  #pprint(msg)
-
-  bot.sendMessage(chat_id, 'Ciao Andò')
-  bot.sendPhoto(chat_id, found[randint(0,len(found))])
+  cp = re.findall(pattern, command_input.lower())
+  if cp:
+      bot.sendPhoto(chat_id, found[randint(0,len(found))])
 
 bot = telepot.Bot('247025363:AAHdRykgnCXdP3Lb6INVADAs0r5RNlF7LbY')
 
