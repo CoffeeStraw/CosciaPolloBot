@@ -43,7 +43,7 @@ def handle(msg):
   command_input = msg['text']
   print("Messaggio: %(text)s" % msg)
 
-  pattern = 'pollo|polli|pollastrello|pollastrella'
+  pattern = 'coscia|coscetta|poll[aeiou]|pollastrello|pollastrella'
 
   cp = re.findall(pattern, command_input.lower())
   if cp:
