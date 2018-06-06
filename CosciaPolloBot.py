@@ -8,6 +8,7 @@ from pprint import pprint
 from io import BytesIO
 #from LogErrors import MakeLog
 
+BOT_TOKEN = '<insert your bot token here>'
 
 g_url = 'https://www.google.it/search?q=coscia+di+pollo&espv=2&biw=1707&bih=818&source=lnms&tbm=isch&sa=X&ved=0ahUKEwid0-zs4anSAhUHVxQKHSgOC4cQ_AUIBigB'
 
@@ -40,6 +41,7 @@ def handle(msg):
 
   chat_id = msg['chat']['id']
   command_input = msg['text']
+  print("Messaggio: %(text)s" % msg)
 
   pattern = 'pollo|polli|pollastrello|pollastrella'
 
@@ -47,7 +49,7 @@ def handle(msg):
   if cp:
       bot.sendPhoto(chat_id, found[randint(0,len(found))])
 
-bot = telepot.Bot('247025363:AAHdRykgnCXdP3Lb6INVADAs0r5RNlF7LbY')
+bot = telepot.Bot(BOT_TOKEN)
 
 bot.message_loop(handle)
 
